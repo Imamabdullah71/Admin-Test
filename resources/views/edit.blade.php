@@ -21,37 +21,38 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <form action="{{ route('user.store') }}" method="POST">
+                <form action="{{ route('user.update',['id' => $data->id]) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <!-- left column -->
                         <div class="col-md-6">
                             <!-- general form elements -->
                             <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Form Tambah User</h3>
+                                <h3 class="card-title">Edit User</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form>
                                 <div class="card-body">
                                 <div class="form-group">
-                                  <label for="exampleInputEmail1">Email</label>
-                                  <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Masukkan Email">
+                                    <label for="exampleInputEmail1">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{ $data->email }}" placeholder="Masukkan Email">
                                 </div>
                                 @error('email')
                                     <small>{{ $message }}</small>
                                 @enderror
                                 <div class="form-group">
-                                  <label for="exampleInputEmail1">Nama</label>
-                                  <input type="text" class="form-control" id="exampleInputname" name="nama" placeholder="Masukkan nama...">
+                                    <label for="exampleInputEmail1">Nama</label>
+                                    <input type="text" class="form-control" id="exampleInputname" name="nama" value="{{ $data->name }}" placeholder="Masukkan nama...">
                                 </div>
                                 @error('nama')
-                                  <small>{{ $message }}</small>
+                                    <small>{{ $message }}</small>
                                 @enderror
                                 <div class="form-group">
-                                  <label for="exampleInputPassword1">Password</label>
-                                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                 </div>
                                 @error('password')
                                     <small>{{ $message }}</small>
