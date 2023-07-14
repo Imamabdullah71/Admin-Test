@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Validator;
 class HomeController extends Controller
 {
 
+    public function welcome_page(){
+        return view('page.welcomePage');
+    }
+
     public function dashboard(){
         return view('dashboard');
     }
