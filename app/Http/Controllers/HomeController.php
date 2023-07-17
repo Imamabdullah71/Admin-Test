@@ -87,6 +87,6 @@ class HomeController extends Controller
             $data->delete();
         }
 
-        return redirect()->route('index');
+        return redirect()->route('admin.index');
     }
 }

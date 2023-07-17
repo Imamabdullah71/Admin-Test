@@ -27,18 +27,18 @@
       <form action="{{ route('register-proses') }}" method="post">
         @csrf
         <div class="input-group mb-3">
-            <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap...">
+            <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap..." value="{{ old('nama') }}">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
               </div>
             </div>
           </div>
-          @error('name')
+          @error('nama')
           <small>{{ $message }}</small>
           @enderror
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
