@@ -43,4 +43,6 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'], 'as' => 'admin.'], f
     Route::delete('/delete/{id}',[HomeController::class,'delete'])->name('user.delete');
 
     Route::get('/ajax',[ajaxController::class,'index'])->name('ajaxIndex');
+    Route::post('/ajaxStore',[ajaxController::class,'store'])->name('ajaxStore');
+    Route::get('/fetchAll',[ajaxController::class,'fetchAll'])->name('fetchAll');
 });

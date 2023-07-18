@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -264,13 +265,6 @@
   <!-- Content Wrapper. Contains page content -->
     @yield('content')
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -279,6 +273,55 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.all.min.js"></script>
+<script>
+  $(function() {
+
+    // Menambahkan User ajax request
+    $("#form_tambah_User").submit(function(e) {
+      e.preventDefault();
+      const fd = new FormData(this);
+      $("#tombol_tambah_user").text('Menambahkan...');
+      $.ajax({
+        url: '{{ route('admin.ajaxStore') }}',
+        method: 'post',
+        data: fd,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function(response) {
+          if (response.status == 200) {
+            Swal.fire(
+              'Berhasil!',
+              'Data User Berhasil ditambahkan!',
+              'success',
+            )
+            fetchAllUsers();
+          }
+          $("#tombol_tambah_user").text("Tambah User");
+          $("#form_tambah_User")[0].reset();
+          $('#tambahUser').modal('hide');
+        }
+      })
+    });
+
+    // Mengambil semua data User ajax request
+    fetchAllUsers();
+
+    function fetchAllUsers() {
+      $.ajax({
+        url: '{{ route('admin.fetchAll') }}',
+        method: 'get',
+        success: function(response) {
+          $("#show_all_users").html(response);
+        }
+      })
+    }
+  });
+</script>
 
 <!-- jQuery -->
 <script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
