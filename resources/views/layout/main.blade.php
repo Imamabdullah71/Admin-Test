@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta charset="UTF-8">
   <title>Dashboard</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+  <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -26,14 +28,13 @@
   <link rel="stylesheet" href="{{ asset('lte/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{ asset('lte/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -217,7 +218,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
                   </svg>
-                  <p>Home</p>
+                  <p class="pl-1">Home</p>
                 </a>
               </li>
 
@@ -226,18 +227,18 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
                   </svg>
-                  <p>
+                  <p class="pl-1">
                     Non-ajax User Table
                   </p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{ route('admin.ajaxIndex') }}" class="nav-link">
+                <a href="{{ route('admin.ajax-crud-datatable') }}" class="nav-link">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
                   </svg>
-                  <p>
+                  <p class="pl-1">
                     Ajax Table
                   </p>
                 </a>
@@ -249,8 +250,8 @@
                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                   </svg>
-                  <p>
-                     Logout
+                  <p class="pl-1">
+                    Logout
                   </p>
                 </a>
               </li>
@@ -275,65 +276,107 @@
 <!-- ./wrapper -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.all.min.js"></script>
-<script>
-  $(function() {
 
-    // Menambahkan User ajax request
-    $("#form_tambah_User").submit(function(e) {
-      e.preventDefault();
-      const fd = new FormData(this);
-      $("#tombol_tambah_user").text('Menambahkan...');
-      $.ajax({
-        url: '{{ route('admin.ajaxStore') }}',
-        method: 'post',
-        data: fd,
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
-          if (response.status == 200) {
-            Swal.fire(
-              'Berhasil!',
-              'Data User Berhasil ditambahkan!',
-              'success',
-            )
-            fetchAllUsers();
+<script type="text/javascript">
+  $(document).ready( function () {
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
-          $("#tombol_tambah_user").text("Tambah User");
-          $("#form_tambah_User")[0].reset();
-          $('#tambahUser').modal('hide');
-        }
-      })
-    });
+      });
 
-    // Mengambil semua data User ajax request
-    fetchAllUsers();
+      $('#ajax-crud-datatable').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: "{{ url('admin/ajax-crud-datatable') }}",
+          columns: [
+              { data: 'id', name: 'id'},
+              { data: 'name', name: 'name'},
+              { data: 'email', name: 'email'},
+              { data: 'address', name: 'address'},
+              { data: 'created_at', name: 'created_at'},
+              { data: 'action', name: 'action', orderable: false},
+          ],
+          order: [[0, 'asc']],
+          paging: true,
+          pageLength: 10 // Menyeting jumlah entri yang ditampilkan menjadi 10
+      });
+  });
 
-    function fetchAllUsers() {
+  function add(){
+      $('#tabeldataForm').trigger("reset");
+      $('#TambahModal').html("Tambah Data");
+      $('#tambah-modal').modal('show');
+      $('#id').val('');
+  }
+
+  function editFunc(id){
       $.ajax({
-        url: '{{ route('admin.fetchAll') }}',
-        method: 'get',
-        success: function(response) {
-          $("#show_all_users").html(response);
-        }
-      })
-    }
+          type: "POST",
+          url: "{{ url('admin/tabeldataedit') }}",
+          data: { id: id},
+          dataType: 'json',
+          success: function(res){
+              console.log(res);
+              $('#TambahModal').html("Edit Data");
+              $('#tambah-modal').modal('show');
+              $('#id').val(res.id);
+              $('#name').val(res.name);
+              $('#address').val(res.address);
+              $('#email').val(res.email);
+          }
+      });
+  }
+
+  function deleteFunc(id){
+      if (confirm("Ingin Mengahapus Data?") == true) {
+          var id = id;
+          //ajax
+          $.ajax({
+              type: "POST",
+              url: "{{ url('admin/tabeldatadelete') }}",
+              data: { id: id },
+              dataType: 'json',
+              success: function(res){
+                  var oTable = $('#ajax-crud-datatable').dataTable();
+                  oTable.fnDraw(false);
+              }
+          });
+      }
+  }
+
+  $('#tabeldataForm').submit(function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      $.ajax({
+          type: 'POST',
+          url: "{{ url('admin/tabeldatastore') }}",
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: (data) => {
+              console.log(data);
+              $("#tambah-modal").modal('hide');
+              var oTable = $('#ajax-crud-datatable').dataTable();
+              oTable.fnDraw(false);
+              $("#btn-save").html('Submit');
+              $("#btn-save"). attr("disabled", false);
+          },
+          error: function(data) {
+              console.log(data);
+          }
+      });
   });
 </script>
 
-<!-- jQuery -->
-<script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('lte/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
 <!-- ChartJS -->
 <script src="{{ asset('lte/plugins/chart.js/Chart.min.js') }}"></script>
 <!-- Sparkline -->

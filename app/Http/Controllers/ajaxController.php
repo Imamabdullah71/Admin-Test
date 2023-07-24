@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ajaxModel;
+use Illuminate\Support\Facades\Storage;
 
 class ajaxController extends Controller
 {
@@ -35,10 +36,10 @@ class ajaxController extends Controller
                     <td>' . $rs->id . '</td>
                     <td>' . $rs->first_name . ' ' . $rs->last_name . '</td>
                     <td>' . $rs->email . '</td>
-                    <td><img src="storage/app/public/images/' . $rs->avatar . '" width="50" class="img-thumbnail rounded-circle"></td>
+                    <td><img src="storage/images/' . $rs->avatar .  '" width="50" class="img-thumbnail rounded-circle"></td>
                     <td>
-                        <a href="#" id="' . $rs->id . '" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editUser"><i class="fas fa-pencil-alt"></i> Edit</a>
-                        <a href="#" id="' . $rs->id . '" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                        <a href="#" id="' . $rs->id . '" class="btn btn-sm btn-primary editIcon" data-bs-toggle="modal" data-bs-target="#editUser"><i class="fas fa-pencil-alt"></i> Edit</a>
+                        <a href="#" id="' . $rs->id . '" class="btn btn-sm btn-danger deleteIcon"><i class="fas fa-trash"></i> Delete</a>
                     </td>
                 </tr>';
             }
@@ -94,17 +95,42 @@ class ajaxController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        $id = $request->id;
+        $emp = ajaxModel::find($id);
+        return response()->json($emp);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $fileName = '';
+        $emp = ajaxModel::find($request->emp_id);
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/images', $fileName);
+            if ($emp->avatar) {
+                Storage::delete('public/images/', $emp->avatar);
+            }
+        } else {
+            $fileName = $request->emp_avatar;
+        }
+
+        $empData = [
+            'first_name' => $request->fname,
+            'last_name' => $request->lname,
+            'email' => $request->email,
+            'avatar' => $fileName,
+        ];
+
+        $emp->update($empData);
+        return response()->json([
+            'status' => 200,
+        ]);
     }
 
     /**

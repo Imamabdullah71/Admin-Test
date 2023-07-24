@@ -3,6 +3,7 @@
 use App\Http\Controllers\ajaxController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\tabeldataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,5 +45,12 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'], 'as' => 'admin.'], f
 
     Route::get('/ajax',[ajaxController::class,'index'])->name('ajaxIndex');
     Route::post('/ajaxStore',[ajaxController::class,'store'])->name('ajaxStore');
-    Route::get('/fetchAll',[ajaxController::class,'fetchAll'])->name('fetchAll');
+    Route::get('/ajaxEdit', [ajaxController::class, 'edit'])->name('ajaxEdit');
+    Route::get('/ajaxUpdate', [ajaxController::class, 'update'])->name('ajaxUpdate');
+    Route::post('/fetchAll',[ajaxController::class,'fetchAll'])->name('fetchAll');
+
+    Route::get('/ajax-crud-datatable', [tabeldataController::class, 'index'])->name('ajax-crud-datatable');
+    Route::post('/tabeldatastore', [tabeldataController::class, 'store'])->name('tabeldatastore');
+    Route::post('/tabeldataedit', [tabeldataController::class, 'edit'])->name('tabeldataedit');
+    Route::post('/tabeldatadelete', [tabeldataController::class, 'destroy'])->name('tabeldatadelete');
 });
