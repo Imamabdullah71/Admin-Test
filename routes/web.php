@@ -43,12 +43,6 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'], 'as' => 'admin.'], f
     Route::put('/update/{id}',[HomeController::class,'update'])->name('user.update');
     Route::delete('/delete/{id}',[HomeController::class,'delete'])->name('user.delete');
 
-    Route::get('/ajax',[ajaxController::class,'index'])->name('ajaxIndex');
-    Route::post('/ajaxStore',[ajaxController::class,'store'])->name('ajaxStore');
-    Route::get('/ajaxEdit', [ajaxController::class, 'edit'])->name('ajaxEdit');
-    Route::get('/ajaxUpdate', [ajaxController::class, 'update'])->name('ajaxUpdate');
-    Route::post('/fetchAll',[ajaxController::class,'fetchAll'])->name('fetchAll');
-
     Route::get('/ajax-crud-datatable', [tabeldataController::class, 'index'])->name('ajax-crud-datatable');
     Route::post('/tabeldatastore', [tabeldataController::class, 'store'])->name('tabeldatastore');
     Route::post('/tabeldataedit', [tabeldataController::class, 'edit'])->name('tabeldataedit');
