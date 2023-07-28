@@ -18,10 +18,10 @@
 
 <body>
     <div class="jumbotron jumbotron-fluid bg-primary text-white">
-        <div class="container">
-            <h1 class="display-4">Selamat Datang</h1>
+        <div class="container d-flex justify-content-center">
+            <h1 class="display-4"><b>Selamat Datang</b></h1>
         </div>
-        <div class="container">
+        <div class="container d-flex justify-content-center">
             <a href="{{ route('login') }}" class="btn btn-success">Masuk ke Login</a>
         </div>
     </div>
@@ -37,8 +37,8 @@
                 <div class="carousel-item active">
                     <img src="{{ asset('images/kilau3.png') }}" class="d-block w-100" alt="Slide 1">
                     <div class="carousel-caption">
-                        <h3>Judul Slide 1</h3>
-                        <p>Deskripsi slide 1 berada di sini.</p>
+                        <h3>Kilau Indonesia</h3>
+                        <p>Cabang Sumedang</p>
                     </div>
                 </div>
                 <div class="carousel-item">

@@ -6,7 +6,6 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
-  <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -243,6 +242,17 @@
                   </p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="{{ route('admin.students') }}" class="nav-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
+                  </svg>
+                  <p class="pl-1">
+                    Filter
+                  </p>
+                </a>
+              </li>
               
               <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link">
@@ -275,103 +285,15 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.all.min.js"></script>
 
-<script type="text/javascript">
-  $(document).ready( function () {
-      $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
-
-      $('#ajax-crud-datatable').DataTable({
-          processing: true,
-          serverSide: true,
-          ajax: "{{ url('admin/ajax-crud-datatable') }}",
-          columns: [
-              { data: 'id', name: 'id'},
-              { data: 'name', name: 'name'},
-              { data: 'email', name: 'email'},
-              { data: 'address', name: 'address'},
-              { data: 'created_at', name: 'created_at'},
-              { data: 'action', name: 'action', orderable: false},
-          ],
-          order: [[0, 'asc']],
-          paging: true,
-          pageLength: 10 // Menyeting jumlah entri yang ditampilkan menjadi 10
-      });
-  });
-
-  function add(){
-      $('#tabeldataForm').trigger("reset");
-      $('#TambahModal').html("Tambah Data");
-      $('#tambah-modal').modal('show');
-      $('#id').val('');
-  }
-
-  function editFunc(id){
-      $.ajax({
-          type: "POST",
-          url: "{{ url('admin/tabeldataedit') }}",
-          data: { id: id},
-          dataType: 'json',
-          success: function(res){
-              console.log(res);
-              $('#TambahModal').html("Edit Data");
-              $('#tambah-modal').modal('show');
-              $('#id').val(res.id);
-              $('#name').val(res.name);
-              $('#address').val(res.address);
-              $('#email').val(res.email);
-          }
-      });
-  }
-
-  function deleteFunc(id){
-      if (confirm("Ingin Mengahapus Data?") == true) {
-          var id = id;
-          //ajax
-          $.ajax({
-              type: "POST",
-              url: "{{ url('admin/tabeldatadelete') }}",
-              data: { id: id },
-              dataType: 'json',
-              success: function(res){
-                  var oTable = $('#ajax-crud-datatable').dataTable();
-                  oTable.fnDraw(false);
-              }
-          });
-      }
-  }
-
-  $('#tabeldataForm').submit(function(e) {
-      e.preventDefault();
-      var formData = new FormData(this);
-      $.ajax({
-          type: 'POST',
-          url: "{{ url('admin/tabeldatastore') }}",
-          data: formData,
-          cache: false,
-          contentType: false,
-          processData: false,
-          success: (data) => {
-              console.log(data);
-              $("#tambah-modal").modal('hide');
-              var oTable = $('#ajax-crud-datatable').dataTable();
-              oTable.fnDraw(false);
-              $("#btn-save").html('Submit');
-              $("#btn-save"). attr("disabled", false);
-          },
-          error: function(data) {
-              console.log(data);
-          }
-      });
-  });
-</script>
+<!-- jQuery -->
+<script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('lte/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 
 <script>
   $.widget.bridge('uibutton', $.ui.button)
