@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+*::selection {
+    background: rgb(173, 141, 255);
+    color: #fff;
+}
+
+:root {
+    --primary-color: #f9f9f9;
+    --secondary-color: #222;
+}
+
+html {
+    font-size: 62%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--primary-color);
+}
+
+section {
+    min-height: 100vh;
+    padding: 0 9%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--primary-color);
+    padding: 2rem 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+header .logo-kilau {
+    position: relative;
+    width: 4rem;
+}
+
+header .navtop a {
+    display: inline-block;
+    font-size: 1.7rem;
+    margin-left: 3rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+header .navtop a:hover {
+    color: rgb(173, 141, 255);
+}
+
+header .mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(rgb(166, 170, 245), rgb(149, 218, 254));
+    color: #f9f9f9;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .border {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    z-index: -1;
+}
+
+.home .contenthome h3 {
+    font-size: 4.4rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    line-height: 5.3rem;
+}
+
+.home .contenthome h3 span {
+    font-size: 7rem;
+    color: rgb(22, 97, 165);
+    line-height: 7rem;
+}
+
+.home .contenthome p {
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    padding: 1rem 0;
+}
+
+.tombol {
+    position: relative;
+    display: inline-block;
+    padding: .8rem 5rem;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    font-size: 1.7rem;
+    color: #f9f9f9;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .5);
+    overflow: hidden;
+}
+
+.tombol span {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: linear-gradient( rgb(166, 170, 245), rgb(149, 218, 254), rgb(166, 170, 245), rgb(149, 218, 254));
+    width: 100%;
+    height: 300%;
+    z-index: -1;
+}
+
+.tombol:hover span {
+    top: 0;
+    transition: .5s;
+}
+
+.home .gambar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200rem;
+}
+
+.home .gambar .logokilau2 {
+    position: absolute;
+    width: 60%;
+}
+
+.home .gambar .siluet-kilau {
+    position: absolute;
+    width: 80%;
+    opacity: .1;
+    z-index: -2;
+}
+
+.iconsosmed {
+    position: absolute;
+    bottom: 2.5rem;
+    display: flex;
+}
+
+.iconsosmed a {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(92, 92, 252);
+    border-radius: 50%;
+    text-align: center;
+}
+
+.iconsosmed a i {
+    font-size: 1.7rem;
+    color: #f9f9f9;
+    line-height: 4rem;
+}
+
+/* .carousel-inner img {
+    object-fit: cover;
+    width: 900px;
+    height: 500px;
+} */
+
+/* .btnmsk {
+    position: relative;
+    cursor: pointer;
+    margin: 0 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    padding: 14px 32px;
+    background: #fff;
+    color: #262626;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.btnmsk:before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -10px;
+    left: -10px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+
+.btnmsk:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    bottom: -10px;
+    right: -10px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transition: all 0.5s; 
+    text-decoration: none;
+}
+
+.btnmsk:hover:before,
+    .btnmsk:hover:after {
+        height: 100%;
+        width: 100%;
+    } */
