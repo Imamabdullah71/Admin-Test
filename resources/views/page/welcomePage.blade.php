@@ -3,40 +3,44 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selamat Datang</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/welcomepagestyle.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/welcomepagestyle.css') }}">
 </head>
 
 <body>
 
     <header>
-        <img src="{{ asset('images/LogoKilau.png') }}" alt="" class="logo-kilau">
+        <img src="{{ asset('images/LogoKilau2.png') }}" alt="" class="logo-kilau">
+
+        <i class="fa-solid fa-bars tombolbar"></i>
 
         <nav class="navtop">
-            <a href="#">Home</a>
-            <a href="#">Event</a>
-            <a href="#">Venue</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="#" style="--i:1;">Home</a>
+            <a href="#" style="--i:2;">Event</a>
+            <a href="#" style="--i:3;">Venue</a>
+            <a href="#" style="--i:4;">About</a>
+            <a href="#" style="--i:5;">Contact</a>
         </nav>
 
         <i class="fa-solid fa-moon mode"></i>
+
+        <div class="bg-navtop"></div>
     </header>
 
     <section class="home">
         <div class="contenthome">
             <h3>Lembaga<br><span>Kilau</span><br>Berbagi Teknologi</h3>
             <p>
-                Jules Bianchi (1989–2015) adalah seorang pembalap mobil profesional dari Prancis. Ia pernah berkompetisi dalam ajang Formula Satu (F1) pada musim 2013 dan 2014 bersama tim Marussia. Bianchi memulai karier membalapnya pada usia 10 tahun dengan mengikuti kejuaraan gokar di Prancis dan berhasil meraih beberapa kesuksesan awal, di antaranya menjadi juara Kejuaraan Junior Prancis dan peringkat kedua dalam Kejuaraan Junior Eropa pada tahun 2004. Selanjutnya, ia mengikuti berbagai ajang kejuaraan junior seperti Formula 3 Euro Series, Seri GP2 dan Formula Renault 3.5. Pada tahun 2009, Bianchi menjadi pembalap pertama yang bergabung dengan Akademi Pembalap Ferrari, sebuah program pembinaan pembalap dari tim Scuderia Ferrari yang bertujuan untuk mendidik seorang pembalap muda untuk nantinya bisa berkiprah
+                Kilau Indonesia merupakan lembaga yang bergerak di bidang kemanusiaan dan memiliki program-program seperti Berbagi Makan, Berbagi Pendidikan, Berbagi Kesejahteraan dan lain sebagainya. Di Bidang Berbagi Teknologi Kilau berjalan di bidang Informasi dan Teknologi, untuk mengatur struktural secara digital. Menggunakan Website maupun Andriod. Di zaman yang serba canggih sekarang ini sudah tidak aneh rasanya dengan dunia digital, Smartphone seperti sudah menjadi kebutuhan pokok.
             </p>
-            <a href="#" class="tombol"><span></span>Read More</a>
+            <a href="{{ route('login') }}" class="tombol"><span></span>Masuk ke Login</a>
             <div class="iconsosmed">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" style="--i:14;"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" style="--i:15;"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" style="--i:16;"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
 
@@ -99,8 +103,7 @@
 
     <script src="{{ asset('javascript/welcomepage.js') }}"></script>
     <!-- Bootstrap JS (jquery and popper.js are required for Bootstrap) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+
 </body>
 
 </html>
