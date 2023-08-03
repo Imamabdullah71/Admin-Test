@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
   <title>Log in</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{ asset('lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
+<body>
+
+  <section>
+    <div class="container">
+      <div id="scene">
+        <div class="layer">
+          <img src="{{ asset('images/vw4.png') }}" alt=""  style="--i:4;">
+        </div>
+        <div class="layer">
+          <img src="{{ asset('images/vw3.png') }}" alt=""  style="--i:3;">
+        </div>
+        <div class="layer">
+          <img src="{{ asset('images/vw2.png') }}" alt=""  style="--i:2;">
+        </div>
+        <div class="layer">
+          <img src="{{ asset('images/vw1.png') }}" alt=""  style="--i:1;">
+        </div>
+        <div class="layer">
+          <img src="{{ asset('images/sunshine.png') }}" alt=""  style="--i:5;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{{-- <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
@@ -77,14 +92,9 @@
   </div>
   <!-- /.card -->
 </div>
-<!-- /.login-box -->
+<!-- /.login-box --> --}}
 
-<!-- jQuery -->
-<script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('javascript/login.js') }}"></script>
 
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

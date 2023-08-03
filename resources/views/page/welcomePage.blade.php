@@ -40,7 +40,7 @@
             <div class="iconsosmed">
                 <a href="#" style="--i:14;"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="#" style="--i:15;"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" style="--i:16;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.instagram.com/kilauonline/?hl=id" target="_blank" style="--i:16;"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
 
