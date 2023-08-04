@@ -10,21 +10,40 @@
   <section>
     <div class="container">
       <div id="scene">
-        <div class="layer">
+        <div class="layer" data-depth-x="-0.15">
           <img src="{{ asset('images/vw4.png') }}" alt=""  style="--i:4;">
         </div>
-        <div class="layer">
+        <div class="layer" data-depth-x="0.20">
           <img src="{{ asset('images/vw3.png') }}" alt=""  style="--i:3;">
         </div>
-        <div class="layer">
+        <div class="layer" data-depth-x="0.35">
           <img src="{{ asset('images/vw2.png') }}" alt=""  style="--i:2;">
         </div>
-        <div class="layer">
+        <div class="layer" data-depth-x="0.25">
           <img src="{{ asset('images/vw1.png') }}" alt=""  style="--i:1;">
         </div>
-        <div class="layer">
+        <div class="layer" data-depth-x="-0.5">
           <img src="{{ asset('images/sunshine.png') }}" alt=""  style="--i:5;">
         </div>
+        <div class="layer" data-depth-x="-0.3" data-depth-y="-0.1">
+          <img src="{{ asset('images/vw5.png') }}" alt="" class="leave">
+        </div>
+      </div>
+    </div>
+    <div class="login">
+      <h2>Sign In</h2>
+      <div class="inputBox">
+        <input type="text" placeholder="Username">
+      </div>
+      <div class="inputBox">
+        <input type="password" placeholder="Password">
+      </div>
+      <div class="inputBox">
+        <input type="submit" value="Login" id="tombollogin">
+      </div>
+      <div class="group">
+        <a href="#"> Belum Punya Akun?</a>
+        <a href="#">Register</a>
       </div>
     </div>
   </section>
@@ -93,8 +112,11 @@
   <!-- /.card -->
 </div>
 <!-- /.login-box --> --}}
-
-<script src="{{ asset('javascript/login.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  let scene = document.getElementById('scene');
+  let parallax = new Parallax(scene);
+</script>
 
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
