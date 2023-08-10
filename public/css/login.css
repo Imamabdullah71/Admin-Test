@@ -108,11 +108,11 @@ section {
     position: relative;
     border: none;
     outline: none;
-    background: linear-gradient( rgb(166, 170, 245), rgb(149, 218, 254), rgb(166, 170, 245), rgb(149, 218, 254));
+    background: linear-gradient( rgb(166, 170, 245), rgb(149, 218, 254));
     cursor: pointer;
     color: #fff;
     font-weight: 500;
-    box-shadow: none;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.25);
 }
 
 .login .group {
@@ -127,7 +127,7 @@ section {
 }
 
 .login .group a:nth-child(2) {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 @keyframes slideTop {
