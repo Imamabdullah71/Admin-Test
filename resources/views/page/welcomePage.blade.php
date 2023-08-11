@@ -51,58 +51,7 @@
         <img src="{{ asset('images/boderkilau.png') }}" alt="" class="border">
     </section>
 
-    {{-- <div class="jumbotron jumbotron-fluid bg-primary text-white">
-        <div class="container d-flex justify-content-center">
-            <h1 class="display-4 pb-5"><b>Selamat Datang</b></h1>
-        </div>
-        <div class="container d-flex justify-content-center">
-            <a href="{{ route('login') }}" class="btnmsk">Masuk ke Login</a>
-        </div>
-    </div> --}}
-
-    {{-- <div class="container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('images/kilau3.png') }}" class="d-block w-100" alt="Slide 1">
-                    <div class="carousel-caption">
-                        <h3>Kilau Indonesia</h3>
-                        <p>Cabang Sumedang</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('images/kilau2.png') }}" class="d-block w-100" alt="Slide 2">
-                    <div class="carousel-caption">
-                        <h3>Judul Slide 2</h3>
-                        <p>Deskripsi slide 2 berada di sini.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('images/kilau1.png') }}" class="d-block w-100" alt="Slide 3">
-                    <div class="carousel-caption">
-                        <h3>Judul Slide 3</h3>
-                        <p>Deskripsi slide 3 berada di sini.</p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div> --}}
-
     <script src="{{ asset('javascript/welcomepage.js') }}"></script>
-    <!-- Bootstrap JS (jquery and popper.js are required for Bootstrap) -->
 
 </body>
 
